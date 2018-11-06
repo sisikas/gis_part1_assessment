@@ -85,13 +85,17 @@ knitr::include_graphics('C:/Users/User/Desktop/work/casa/0005 GIS/1. week 4 assi
 
 ##Conclusion
 
-Mapping in R entails great possibilities, evolving through packages created by its own users and having an extended support community. GUI software like ArcMap may lack the creative possibilities of CLI but provide a friendlier interface, promoting better interaction between the user and the space which the map addresses.  
+Mapping in R entails great possibilities, evolving through packages created by its own users and having an extended support community. GUI software like ArcMap may lack the creative possibilities of CLI but provide a friendlier interface, promoting better interaction between the user and the space which the map addresses. \newline
 
 
-Words 597
+*Note: RMD file of the map created in R can be found here:* (https://github.com/sisikas/enterprises)
+
+
+*Words 597* \newpage
+
 
 ---
-nocite: '@haklay_how_2010; @noauthor_business_nodate; @noauthor_cookbook_nodate; @noauthor_planning_nodate'
+nocite: '@haklay_how_2010; @noauthor_business_nodate; @noauthor_cookbook_nodate; @noauthor_planning_nodate;@bounds_number_2017; @maxine_myers_uk_2014'
 ...
 
 
