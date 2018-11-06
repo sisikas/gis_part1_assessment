@@ -61,7 +61,7 @@ The map presents the location and area of business offices, receiving planning p
 
 Unlike R, the permissions data was cleaned externally in excel. After adding the data in ArcMap, a *feature class* of the total permissions was created. Using the“selection by *attributes*”, a new feature class was created, exclusively for the business offices. The **display properties** of each class could be accessed from the contents table. It is noticeable that unlike CLI, ArcGiS made **navigation in multiple files** easy and provided a clear understanding of **hierarchy** through the ArcCatalog and the table of contents.
 
-To visualize the area variations, ArcMap offered ready to use **symbology** options, easier to apply than those of CLI. In this case, the office area was illustrated with different sized bubbles. Given that there was a considerable values variation, the jenks classification was used  [@michael_j_de_smith_geospatial_2018].Regarding the layout, ArcMap provided a greater freedom on *positioning* and adding complementary elements such as captions. 
+To visualize the area variations, ArcMap offered ready to use **symbology** options, easier to apply than those of CLI. In this case, the office area was illustrated with different sized bubbles. Given that there was a considerable values variation, the jenks classification was used  [@michael_j_de_smith_geospatial_2018].Regarding the layout, ArcMap provided a greater freedom on **positioning** and adding **complementary elements** such as captions. 
 
 ```{r echo=FALSE, fig.align="center", out.width='90%',fig.cap="Sample plot of total planning permissions, as points diplayed from XY data."}
 
