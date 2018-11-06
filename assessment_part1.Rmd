@@ -1,0 +1,98 @@
+---
+title: "Assessment Part 1"
+author: "Spyridoula Kasimati"
+fontsize: 12pt
+output:
+  pdf_document: default
+  html_notebook: default
+  word_document: default
+bibliography: references.bib
+---
+
+```{r include=FALSE}
+library(citr)
+```
+
+
+##Introduction
+
+This project presents the process of mapping new enterprises created in London between 2004-2016 and the office spaces receiving planning permission in the same period, using R and ArcMap accordingly. The study begins by introducing the data sources, then demonstrates and compares the workflows and limitations of each map. 
+
+
+##Data
+The number of new enterprises in London were part of a business demographic dataset from the Office of National Statistics. Birth of enterprises was identified as the registration of a business which did not exist the year before. 
+Data on planning permissions by development type was provided by the Greater London Authority. Accuracy on the attributes [@pepijn_van_oort_spatial_2006] was established through the metadata, which explained the developments’ classification, aiming to reduce the MAUP[@david_wong_international_2009]. Finally, the shapefile for the London basemap (using the British National Grid) comes from the ONS geoportal.
+
+##R
+A grid of four chloropleth maps was created, to compare the births of enterprises across London throughout the years.The input was a shapefile of the administrative boundaries and a csv file of business demographics in England. A strong asset of R is its **packages**. To start with, **“tidyverse”** saved time from manually removing text from numeric cells.
+
+The original dataset was noticeably complicated and R made it easy to subset the dataframe, without editing the original csv file. Also, with the **grep()** function the London Boroughs were separated from the rest of the rows.
+
+The last step was to create a SF keeping the necessary data and the geometry, by joining the London Boundaries and Enterprise dataframes, based on their common field “code”.
+The benefit of packages such as **ggplot** was that it enabled to plot, style (**viridis** package) and change the map any time, by adding layers. Among other packages, with **“reshape2”** the dataframe was rearranged according to years, and **“gridExtra”** positioned elements in the grid, such as the north symbol. However, even in the case of dynamic maps, a setback noticed in the CLI was the user’s inability to navigate and experience space, in a way that a GUI software can offer.
+
+
+```{r echo=FALSE, fig.align="center", out.width='85%',fig.cap="Initial dataset, before cleanup and subsetting"}
+library(knitr)
+knitr::include_graphics('C:/Users/User/Desktop/work/casa/0005 GIS/1. week 4 assignment/sumbission_folder/enterprisesInitialDataset.png')
+
+```
+               
+
+
+```{r echo=FALSE, fig.align="center", out.width='80%',fig.cap="Final dataframe for faceted plot"}
+
+knitr::include_graphics('C:/Users/User/Desktop/work/casa/0005 GIS/1. week 4 assignment/sumbission_folder/enterprisesFinalDataset.png')
+
+```
+\newpage
+```{r echo=FALSE, fig.align="center", out.width='100%',fig.cap="Final output using R."}
+
+knitr::include_graphics('C:/Users/User/Desktop/work/casa/0005 GIS/1. week 4 assignment/sumbission_folder/enterpriseBirths.png')
+
+
+```
+
+
+
+
+##ArcGis
+The map presents the location and area of business offices, receiving planning permission between 2004-2016 in London. Considering that an object’s attribute is better understood when presented within a context of other attributes  [@paul_longley_geographic_2015], the map depicts additionally the rest of permission types using purple dots. 
+
+Unlike R, the permissions data was cleaned externally in excel. After adding the data in ArcMap, a **feature class** of the total permissions was created. Using the“selection by **attributes**”, a new feature class was created, exclusively for the business offices. The display properties of each class could be accessed from the contents table. It is noticeable that unlike CLI, ArcGiS made navigation in multiple files easy and provided a clear understanding of hierarchy through the ArcCatalog and the table of contents.
+
+To visualize the area variations, ArcMap offered ready to use **symbology** options, easier to apply than those of CLI. In this case, the office area was illustrated with different sized bubbles. Given that there was a considerable values variation, the jenks classification was used  [@michael_j_de_smith_geospatial_2018].Regarding the layout, ArcMap provided a greater freedom on positioning and adding complementary elements such as captions. 
+
+```{r echo=FALSE, fig.align="center", out.width='90%',fig.cap="Sample plot of total planning permissions, as points diplayed from XY data."}
+
+knitr::include_graphics('C:/Users/User/Desktop/work/casa/0005 GIS/1. week 4 assignment/sumbission_folder/totalPermissions.png')
+
+```
+
+
+```{r echo=FALSE, fig.align="center", out.width='85%',fig.cap="Selection by multiple attributes (data for years 2004,2008,2012,2014)"}
+
+knitr::include_graphics('C:/Users/User/Desktop/work/casa/0005 GIS/1. week 4 assignment/sumbission_folder/selectbyAttributes.png')
+
+```
+\newpage
+```{r echo=FALSE, fig.align="center", out.width='100%',fig.cap="Final output using ArcMap"}
+
+knitr::include_graphics('C:/Users/User/Desktop/work/casa/0005 GIS/1. week 4 assignment/sumbission_folder/officePermissions.png')
+
+```
+
+
+##Conclusion
+
+Mapping in R entails great possibilities, evolving through packages created by its own users and having an extended support community. GUI software like ArcMap may lack the creative possibilities of CLI but provide a friendlier interface, promoting better interaction between the user and the space which the map addresses.  
+
+
+Words 597
+
+---
+nocite: '@haklay_how_2010; @noauthor_business_nodate; @noauthor_cookbook_nodate; @noauthor_planning_nodate'
+...
+
+
+##References
